@@ -1,0 +1,86 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - php
+    restart: always
+    volumes:
+      - type: bind
+        source: ./nginx/ssl
+        target: /etc/nginx/ssl
+
+      - type: bind
+        source: ./nginx/conf.d/nginx.conf
+        target: /etc/nginx/conf.d/default.conf
+
+      - type: volume
+        source: nginx-logs
+        target: /var/log/nginx
+
+      - ./wordpress:/var/www/html
+
+    ports:
+      - "80:8080"
+      - "443:8443"
+
+  php:
+    depends_on:
+      - mariaDB
+    image: wordpress:fpm-alpine
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: mariaDB:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/mysql_password
+      WORDPRESS_DB_NAME: wordpress
+
+    volumes:
+      - ./wordpress:/var/www/html
+
+    secrets:
+      - mysql_password
+
+  mariaDB:
+    image: mariadb:latest
+    restart: always
+
+    volumes:
+      - type: volume
+        source: mysql-data
+        target: /var/lib/mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+      MYSQL_DATABASE: wordpress
+
+    expose:
+      - "3306"
+
+    secrets:
+      - mysql_password
+      - mysql_root
+
+    healthcheck:
+      test: ["CMD", "mysqladmin --user=root --password=$$(cat /run/secrets/mysql_root) ping"]
+      start_period: 60s
+
+
+secrets:
+  mysql_root:
+    file: ./secrets/mysql_root
+  mysql_password:
+    file: ./secrets/mysql_password
+
+volumes:
+  mysql-data:
+  nginx-logs:
+  nginx:
+
+networks:
+  private:
+
+
+

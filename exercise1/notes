@@ -1,0 +1,61 @@
+Notes:
+
+https://mozilla.github.io/server-side-tls/ssl-config-generator/
+
+
+Key generation:
+openssl dhparam -out /etc/nginx/dhparam.pem 4096
+
+Caching:
+
+
+TODO: Install FastCaching!
+nginx -V 2>&1 | grep nginx-cache-purge -o
+https://easyengine.io/wordpress-nginx/tutorials/single-site/fastcgi-cache-with-purging
+
+
+Encrypt:
+
+https://letsencrypt.org/docs/certificates-for-localhost/
+https://deliciousbrains.com/http2-https-lets-encrypt-wordpress/
+
+https://serverfault.com/questions/750902/how-to-use-lets-encrypt-dns-challenge-validation
+
+
+SSL self sign:
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-debian-9
+
+➜  ssl sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./nginx-selfsigned.key -out ./nginx-selfsigned.crt
+Password:
+Generating a 2048 bit RSA private key
+.............................................+++
+...............................+++
+writing new private key to './nginx-selfsigned.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:GB
+State or Province Name (full name) []:London
+Locality Name (eg, city) []:London
+Organization Name (eg, company) []:dfowler
+Organizational Unit Name (eg, section) []:example
+Common Name (eg, fully qualified host name) []:dfowler.example
+Email Address []:fowlerd1@gmail.com
+
+
+
+
+WORDPRESS:
+
+https://www.wpwhitesecurity.com/definite-guide-htaccess-wordpress/
+
+https://www.askapache.com/online-tools/htpasswd-generator/
+
+Tuning:
+https://haydenjames.io/php-fpm-tuning-using-pm-static-max-performance/
+
