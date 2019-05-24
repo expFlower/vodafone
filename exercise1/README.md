@@ -13,7 +13,7 @@ Please see [docker-compose file versions](https://docs.docker.com/compose/compos
 ### Design notes:
 
 
-####Wordpress:
+###Wordpress:
 
 [Official docker wordpress:alpine image](https://docs.docker.com/samples/library/wordpress/) with all defaults.
 This is alpine image of wordpress, used to keep the image size as small as possible
@@ -25,7 +25,7 @@ implement [wordpress-hardening](https://wordpress.org/support/article/hardening-
 I'd also strong recommending tuning PHP-FPM settings depending on your workload. 
 
 
-####Nginx:
+###Nginx:
 
 [Official docker nginx:alpine image.](https://docs.docker.com/samples/library/nginx/) This is alpine image of wordpress,
  used to keep the image size as small as possible.
