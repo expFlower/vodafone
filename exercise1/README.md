@@ -9,14 +9,14 @@ Please note that we are using docker-compose file format 3.7, please ensure that
 
 Please see [docker-compose file versions](https://docs.docker.com/compose/compose-file/compose-versioning/) for more details
 
-Ports used:
+#### Ports used:
 
 8080: HTTP - redirects to HTTPs
 8443: HTTPS - Supports both TLS v1.2 and v1.3
 
 3306 - Standard MySQL/ Maria DB
 
-### Design notes:
+## Design notes:
 
 
 #### Wordpress:
