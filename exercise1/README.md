@@ -15,7 +15,7 @@ Please see [docker-compose file versions](https://docs.docker.com/compose/compos
 
 `8443`: HTTPS - Supports both TLS v1.2 and v1.3
 
-`3306` - Standard MySQL/ Maria DB
+`3306`: Standard MySQL/ Maria DB
 
 ## Design notes:
 
