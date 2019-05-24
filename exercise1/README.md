@@ -11,10 +11,11 @@ Please see [docker-compose file versions](https://docs.docker.com/compose/compos
 
 #### Ports used:
 
-8080: HTTP - redirects to HTTPs
-8443: HTTPS - Supports both TLS v1.2 and v1.3
+`8080`: HTTP - redirects to HTTPs
 
-3306 - Standard MySQL/ Maria DB
+`8443`: HTTPS - Supports both TLS v1.2 and v1.3
+
+`3306` - Standard MySQL/ Maria DB
 
 ## Design notes:
 
