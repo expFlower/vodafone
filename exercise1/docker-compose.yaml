@@ -18,7 +18,9 @@ services:
         source: nginx-logs
         target: /var/log/nginx
 
-      - ./wordpress:/var/www/html
+      - type: volume
+        source: wordpress
+        target: /var/www/html
 
     ports:
       - "80:8080"
@@ -36,7 +38,9 @@ services:
       WORDPRESS_DB_NAME: wordpress
 
     volumes:
-      - ./wordpress:/var/www/html
+      - type: volume
+        source: wordpress
+        target: /var/www/html
 
     secrets:
       - mysql_password
@@ -78,6 +82,7 @@ volumes:
   mysql-data:
   nginx-logs:
   nginx:
+  wordpress:
 
 networks:
   private:
