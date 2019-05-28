@@ -34,7 +34,11 @@ Lets spin up a single node replication redis cluster in AWS Elasticache:
                             --cache-parameter-group default.redis3.2 \
                             --engine redis \
                             --engine-version 3.2.4`
+                            
+                            
 ![Redis](https://github.com/expFlower/vodafone/blob/master/exercise2/images/ElastiCache_Management_Console_Redis.png)                         
+
+
 ### AWS managed Memcached Cache:  
 Lets spin up a single node replication memcache cluster in AWS Elasticache:
                     
@@ -48,6 +52,7 @@ Lets spin up a single node replication memcache cluster in AWS Elasticache:
                             
 ![Memcached](https://github.com/expFlower/vodafone/blob/master/exercise2/images/ElastiCache_Management_Console_Memcached.png)
                             
+
 ## Populating Data:
 Please see `redis_dummydata.py` this is a simple python script to add a key/value set to the local running redis cache.
 
