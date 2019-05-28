@@ -20,7 +20,7 @@ _Fargate Task storage is ephemeral_. Further documentation can be seen
 Below you an see the 2 AWS cli commands i used to spin up each cache. These cluster can then be fully managed using 
 automation and built in to pipeline should you wish.
 
-Pleae note these are very simple setups, should you require these cluster to be access from outside the VPC then numerous
+Please note these are very simple setups, should you require these cluster to be access from outside the VPC then numerous
 other steps and security considerations will be involved:
 
 ### AWS managed Redis Cache:

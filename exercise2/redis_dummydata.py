@@ -9,7 +9,7 @@ while True:
     today = datetime.datetime.now()
     value = "World " + format(today)
     redisClient.set('Hello', value)
-    time.sleep(1)
+    time.sleep(300)
 
 
 
